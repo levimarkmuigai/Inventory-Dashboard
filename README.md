@@ -1,1 +1,1 @@
-# inventory-dash
+# Inventory Dashboard
