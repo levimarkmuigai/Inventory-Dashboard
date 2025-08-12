@@ -2,8 +2,11 @@ package com.example.inventory_dash_backend.domain.model;
 
 import java.util.UUID;
 
-/*
- * Generates a products id*/
+/** 
+ * Value object represetning a product's
+ * unique  identifier
+ * Immutable and guarantees avalid UUID
+ **/
 public final class ProductId {
     
     private final UUID value; 
@@ -17,22 +20,27 @@ public final class ProductId {
         this.value = value;
     }
 
-    // Factory method to create a product ID
+    /**
+     * Generates  a new unique ProductId
+     * */
     public static ProductId createNew() {
         return new ProductId( UUID.randomUUID() );
     }
 
-    // Factory method to get existing ID
+    /**
+     * Rebuilds an existing ProductId from it's string
+     * represntation
+     * */
     public static ProductId fromString(String id) {
         return new ProductId(UUID.fromString(id));
     }
 
-    // CHhange the id to a String
+    @Override
     public String toString() {
         return value.toString();
     }
 
-    // Check if two ids are the same
+    @Override
     public boolean equals(Object o){
         if (this == o) return true;
         if(!(o instanceof ProductId)) return false;
@@ -40,12 +48,15 @@ public final class ProductId {
         return value.equals(other.value);
     }
 
-    // Takes value and gives out hashed value
+    @Override
     public int hashCode() {
         return value.hashCode();
     }
 
-    // Getter for interation with other layers
+    /**
+     * Returns the UUID value for interaction
+     * with other layers
+     **/
     public UUID getValue() {
         return value;
     }
