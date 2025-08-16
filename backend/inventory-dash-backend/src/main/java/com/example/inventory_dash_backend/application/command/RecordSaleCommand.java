@@ -17,13 +17,13 @@ public final class RecordSaleCommand {
        this.productId = Objects.requireNonNull(productId, "Product id cannot be null");
        
        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity must be more than zero." + quantity);
+            throw new IllegalArgumentException("Quantity must be more than zero.Provided " + quantity);
         }
        this.quantity = quantity;
        
        this.revenue =  Objects.requireNonNull(revenue, "Revenue cannot be null.");
        if (revenue.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Revenue should be more than zero" + revenue);
+            throw new IllegalArgumentException("Revenue should be more than zero.Provided: " + revenue);
        }
 
        this.date = Objects.requireNonNull(date, "Date cannot be null.");
