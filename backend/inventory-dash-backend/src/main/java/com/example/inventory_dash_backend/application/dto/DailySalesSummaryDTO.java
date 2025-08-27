@@ -6,8 +6,8 @@ import java.util.List;
 
 public record DailySalesSummaryDTO (
 
-  LocalDate date,
   BigDecimal totalRevenue,
   int totalQuantity,
+  LocalDate date,
   List<SaleItemDTO> items
 ) {}
